@@ -7,7 +7,6 @@
     <tr>
       <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:actual_ip_address) %></th>
-      <th><%= model_class.human_attribute_name(:actual_port) %></th>
       <th><%= model_class.human_attribute_name(:message_type) %></th>
       <th><%= model_class.human_attribute_name(:message_data) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -18,10 +17,9 @@
       <tr>
         <td><%= log.product_id %></td>
         <td><%= log.actual_ip_address %></td>
-        <td><%= log.actual_port %></td>
         <td><%= log.message_type %></td>
         <td><%= log.message_data %></td>
-        <td><%=l log.created_at %></td>
+        <td><%= log.created_at.localtime %></td>
       </tr>
     <% end %>
   </tbody>

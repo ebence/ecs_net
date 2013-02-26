@@ -5,7 +5,6 @@ class LogsController < ApplicationController
     if params[:mac_address]
       Product.find_by_mac_address(params[:mac_address]).logs.create(
           :actual_ip_address => request.remote_ip,
-          :actual_port => request.port_string,
           :message_type => params[:message_type],
           :message_data => params[:message_data])
     end
