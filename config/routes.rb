@@ -1,4 +1,6 @@
 EcsNet::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   get "pages/home"
 
   devise_for :users
