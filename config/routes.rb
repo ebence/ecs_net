@@ -3,7 +3,9 @@ EcsNet::Application.routes.draw do
   resources :logs
 
 
-  resources :products
+  resources :products do
+    resources :logs
+  end
 
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
