@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  products: 
+  actual_ip_address: MyString
+  actual_port: MyString
+  message_type: MyString
+  message_data: MyString
+
+two:
+  products: 
+  actual_ip_address: MyString
+  actual_port: MyString
+  message_type: MyString
+  message_data: MyString

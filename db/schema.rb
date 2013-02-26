@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226134424) do
+ActiveRecord::Schema.define(:version => 20130226140220) do
+
+  create_table "logs", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "actual_ip_address"
+    t.string   "actual_port"
+    t.string   "message_type"
+    t.string   "message_data"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "logs", ["product_id"], :name => "index_logs_on_product_id"
 
   create_table "products", :force => true do |t|
     t.string   "mac_address"

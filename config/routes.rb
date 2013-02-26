@@ -1,5 +1,8 @@
 EcsNet::Application.routes.draw do
 
+  resources :logs
+
+
   resources :products
 
 
