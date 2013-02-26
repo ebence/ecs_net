@@ -1,6 +1,16 @@
 class LogsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :add_log_entry
 
+  def add_log_entry
+    if params[:mac_address]
+      Product.find_by_mac_address(params[:mac_address]).logs.create(
+          :actual_ip_address => request.remote_ip,
+          :actual_port => request.port_string,
+          :message_type => params[:message_type],
+          :message_data => params[:message_data])
+    end
+    render :nothing => true
+  end
   # GET /logs
   # GET /logs.json
   def index

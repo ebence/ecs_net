@@ -1,6 +1,10 @@
 EcsNet::Application.routes.draw do
 
-  resources :logs
+  resources :logs do
+    collection do
+      get 'add_log_entry'
+    end
+  end
 
 
   resources :products do

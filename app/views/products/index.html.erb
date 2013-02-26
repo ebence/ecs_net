@@ -17,7 +17,7 @@
       <tr>
         <td><%= product.mac_address %></td>
         <td><%= product.user_defined_name %></td>
-        <td><%= product.optional_link %></td>
+        <td><%= link_to product.optional_link, product.optional_link, :target => "_blank" %></td>
         <td><%= product.product_type %></td>
         <td>
           <%= link_to "Show", product_logs_path(product), :class => 'btn btn-mini' %>
