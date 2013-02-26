@@ -11,12 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226140220) do
+ActiveRecord::Schema.define(:version => 20130226195826) do
 
   create_table "logs", :force => true do |t|
     t.integer  "product_id"
     t.string   "actual_ip_address"
-    t.string   "actual_port"
     t.string   "message_type"
     t.string   "message_data"
     t.datetime "created_at",        :null => false
@@ -32,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130226140220) do
     t.string   "product_type"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "access_port"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

@@ -5,6 +5,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'rails_admin'
+gem 'annotate'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,6 +15,7 @@ group :production do
 end
 group :development, :test do
   gem 'sqlite3'
+  gem 'better_errors'
 end
 
 # Gems used only for assets and not required

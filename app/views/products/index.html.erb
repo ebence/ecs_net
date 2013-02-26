@@ -5,23 +5,21 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:mac_address) %></th>
       <th><%= model_class.human_attribute_name(:user_defined_name) %></th>
-      <th><%= model_class.human_attribute_name(:optional_link) %></th>
-      <th><%= model_class.human_attribute_name(:product_type) %></th>
-      <th>Logs</th>
+      <% if current_user.admin %>
+        <th>Logs</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.mac_address %></td>
-        <td><%= product.user_defined_name %></td>
-        <td><%= link_to product.optional_link, product.optional_link, :target => "_blank" %></td>
-        <td><%= product.product_type %></td>
-        <td>
-          <%= link_to "Show", product_logs_path(product), :class => 'btn btn-mini' %>
-        </td>
+        <td><%= link_to product.user_defined_name, product.link, :target => "_blank" %></td>
+        <% if current_user.admin %>
+          <td>
+            <%= link_to "Show", product_logs_path(product), :class => 'btn btn-mini' %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
