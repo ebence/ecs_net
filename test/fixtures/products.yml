@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mac_address: MyString
+  user_defined_name: MyString
+  optional_link: MyString
+  product_type: MyString
+
+two:
+  mac_address: MyString
+  user_defined_name: MyString
+  optional_link: MyString
+  product_type: MyString

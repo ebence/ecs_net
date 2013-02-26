@@ -1,4 +1,8 @@
 EcsNet::Application.routes.draw do
+
+  resources :products
+
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get "pages/home"

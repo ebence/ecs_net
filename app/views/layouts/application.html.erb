@@ -12,6 +12,7 @@
             <div class="navbar-inner">
                 <a class="brand" href="#">ECS-NET</a>
                 <ul class="nav">
+                    <li><%= link_to "Products", products_path %></li>
                 <% if current_user %>
                     <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                 <% else %>
