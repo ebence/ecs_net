@@ -9,6 +9,9 @@ EcsNet::Application.routes.draw do
 
   resources :products do
     resources :logs
+    collection do
+      get 'mac_address'
+    end
   end
 
 

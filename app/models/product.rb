@@ -25,6 +25,10 @@ class Product < ActiveRecord::Base
     logs.first.custom_key
   end
 
+  def redirect_url
+    "http://#{actual_ip_address}:#{access_port}/login?mac_address=#{mac_address}&custom_key=#{custom_key}"
+  end
+
   def link
     if !actual_ip_address.blank?
       "http://#{actual_ip_address}:#{access_port}"

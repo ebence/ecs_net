@@ -1,5 +1,13 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :mac_address
+
+  def mac_address
+    if params[:mac_address] && product = Product.find_by_mac_address(params[:mac_address])
+
+      redirect_to product.redirect_url
+    end
+  end
+
   # GET /products
   # GET /products.json
   def index

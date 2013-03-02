@@ -1,0 +1,2 @@
+http://localhost:3000/logs/add_log_entry?mac_address=test&message_type=ping&message_data=testmessage
+http://localhost:3000/products/mac_address?mac_address=test
