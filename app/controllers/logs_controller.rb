@@ -6,7 +6,8 @@ class LogsController < ApplicationController
       Product.find_by_mac_address(params[:mac_address]).logs.create(
           :actual_ip_address => request.remote_ip,
           :message_type => params[:message_type],
-          :message_data => params[:message_data])
+          :message_data => params[:message_data],
+          :custom_key => params[:custom_key])
     end
     render :nothing => true
   end

@@ -21,6 +21,10 @@ class Product < ActiveRecord::Base
     logs.first.actual_ip_address
   end
 
+  def custom_key
+    logs.first.custom_key
+  end
+
   def link
     if !actual_ip_address.blank?
       "http://#{actual_ip_address}:#{access_port}"

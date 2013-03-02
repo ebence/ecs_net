@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302113009) do
+ActiveRecord::Schema.define(:version => 20130302114602) do
 
   create_table "logs", :force => true do |t|
     t.integer  "product_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130302113009) do
     t.string   "message_data"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "custom_key"
   end
 
   add_index "logs", ["product_id"], :name => "index_logs_on_product_id"

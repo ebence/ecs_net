@@ -9,6 +9,7 @@
 #  message_data      :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  custom_key        :string(255)
 #
 
 require 'test_helper'
