@@ -13,7 +13,7 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-    @logs = Log.all
+    @logs = params[:product_id] ? Product.find(params[:product_id]).logs : Log.all
 
     respond_to do |format|
       format.html # index.html.erb
