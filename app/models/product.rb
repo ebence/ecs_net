@@ -14,7 +14,8 @@
 
 class Product < ActiveRecord::Base
   has_many :logs
-  attr_accessible :mac_address, :optional_link, :product_type, :user_defined_name, :access_port
+  has_and_belongs_to_many :users
+  attr_accessible :mac_address, :optional_link, :product_type, :user_defined_name, :access_port, :user_ids
 
   def actual_ip_address
     logs.first.actual_ip_address
