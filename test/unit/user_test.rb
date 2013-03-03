@@ -20,6 +20,7 @@
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
 #  admin                  :boolean          default(FALSE)
+#  unique_session_id      :string(20)
 #
 
 require 'test_helper'

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'devise'
+gem 'devise_security_extension'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'rails_admin'

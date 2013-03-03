@@ -20,6 +20,7 @@
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
 #  admin                  :boolean          default(FALSE)
+#  unique_session_id      :string(20)
 #
 
 class User < ActiveRecord::Base
@@ -27,7 +28,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :confirmable
+         :recoverable, :rememberable, :trackable, :confirmable, :session_limitable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :admin
