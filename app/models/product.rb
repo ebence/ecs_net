@@ -29,6 +29,10 @@ class Product < ActiveRecord::Base
     "http://#{actual_ip_address}:#{access_port}/login?mac_address=#{mac_address}&custom_key=#{custom_key}"
   end
 
+  def inner_link
+    "/"
+  end
+
   def link
     if !actual_ip_address.blank?
       "http://#{actual_ip_address}:#{access_port}"

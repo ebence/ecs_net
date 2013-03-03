@@ -3,21 +3,13 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:user_defined_name) %></th>
-      <% if current_user.admin %>
-        <th>Logs</th>
-      <% end %>
-    </tr>
-  </thead>
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.user_defined_name, product.link, :target => "_blank" %></td>
+        <td><%= link_to product.user_defined_name, mac_address_products_path(:mac_address => product.mac_address), :target => "_blank" %></td>
         <% if current_user.admin %>
           <td>
-            <%= link_to "Show", product_logs_path(product), :class => 'btn btn-mini' %>
+            <%= link_to "Show logs", product_logs_path(product), :class => 'btn btn-mini' %>
           </td>
         <% end %>
       </tr>
