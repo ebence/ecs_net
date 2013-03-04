@@ -2,17 +2,18 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.user_defined_name, mac_address_products_path(:mac_address => product.mac_address), :target => "_blank" %></td>
+<% @products.each do |product| %>
+    <div class="row">
+      <div class="span4 offset1">
+        <%= link_to product.user_defined_name, mac_address_products_path(:mac_address => product.mac_address), :target => "_blank" %>
+      </div>
+      <div class="span1">
         <% if current_user.admin %>
-          <td>
             <%= link_to "Show logs", product_logs_path(product), :class => 'btn btn-mini' %>
-          </td>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+    &nbsp
+    &nbsp
+    &nbsp
+<% end %>

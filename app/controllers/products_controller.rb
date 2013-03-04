@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate_user!, :except => :mac_address
+  before_filter :authenticate_user!
 
   def mac_address
     if params[:mac_address] && product = Product.find_by_mac_address(params[:mac_address])

@@ -34,4 +34,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :admin
   # attr_accessible :title, :body
   has_and_belongs_to_many :products
+
+  rails_admin do
+    object_label_method do
+      :email
+    end
+  end
 end
