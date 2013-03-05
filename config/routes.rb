@@ -11,6 +11,7 @@ EcsNet::Application.routes.draw do
     resources :logs
     collection do
       get 'mac_address'
+      get 'last_data'
     end
   end
 

@@ -18,11 +18,15 @@ class Product < ActiveRecord::Base
   attr_accessible :mac_address, :optional_link, :product_type, :user_defined_name, :access_port, :user_ids
 
   def actual_ip_address
-    logs.first.actual_ip_address
+    logs.first.actual_ip_address if logs.any?
   end
 
   def custom_key
-    logs.first.custom_key
+    logs.first.custom_key if logs.any?
+  end
+
+  def last_xml_data
+    logs.type_is_xml.first.message_data  if logs.type_is_xml.any?
   end
 
   def redirect_url
