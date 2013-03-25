@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_and_belongs_to_many :products
 
+  after_save do
+    UserMailer.user_created(self).deliver if confirmed_at_was.nil? && confirmed_at
+  end
+
   rails_admin do
     object_label_method do
       :email
