@@ -5,7 +5,7 @@
 <% @products.each do |product| %>
     <div class="row">
       <div class="span4 offset1">
-        <%= link_to product.user_defined_name, mac_address_products_path(:mac_address => product.mac_address), :target => "_blank" %>
+        <%= link_to product.user_defined_name, product.optional_link.empty? ? mac_address_products_path(:mac_address => product.mac_address) : product.optional_link, :target => "_blank" %>
       </div>
       <div class="span1">
         <% if current_user.admin %>
