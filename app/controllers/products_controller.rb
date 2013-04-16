@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
       respond_to do |format|
         format.xml {
-          render :xml => product.last_xml_data if product.last_xml_data
+          render :xml => product.xml_data if product.xml_data
         }
       end
     end

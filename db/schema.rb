@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416191325) do
+ActiveRecord::Schema.define(:version => 20130416193934) do
 
   create_table "logs", :force => true do |t|
     t.integer  "product_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130416191325) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "access_port"
+    t.text     "xml_data"
   end
 
   create_table "products_users", :id => false, :force => true do |t|

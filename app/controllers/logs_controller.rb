@@ -3,11 +3,16 @@ class LogsController < ApplicationController
 
   def add_log_entry
     if params[:mac_address]
-      Product.find_by_mac_address(params[:mac_address]).logs.create(
-          :actual_ip_address => request.remote_ip,
-          :message_type => params[:message_type],
-          :message_data => params[:message_data],
-          :custom_key => params[:custom_key])
+      product = Product.find_by_mac_address(params[:mac_address])
+      if params[:message_type] == 'xml'
+        product.update_attributes :xml_data => params[:message_data]
+      else
+        product.logs.create(
+            :actual_ip_address => request.remote_ip,
+            :message_type => params[:message_type],
+            :message_data => params[:message_data],
+            :custom_key => params[:custom_key])
+      end
     end
     render :nothing => true
   end
