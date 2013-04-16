@@ -17,5 +17,5 @@
 package.box
 .DS_Store
 .idea/
-.vagrant/
+.vagrant
 Vagrantfile
