@@ -216,6 +216,11 @@
     }
 </script>
 <style type="text/css">
+@font-face {
+	font-family: museosans;
+	src: url('museosans300.ttf');
+}
+
 table.sample {
 	height: 100%;
 	width: 100%;
@@ -226,6 +231,7 @@ table.sample {
 	border-color: gray;
 	border-collapse: separate;
 	font-size: 40pt;
+	color: white;
 }
 
 td {
@@ -235,7 +241,8 @@ td {
 </style>
 
 </head>
-<body onload="onLoad();" style="height: 100%; margin: 0px;">
+<body onload="onLoad();"
+	style="height: 100%; margin: 0px; font-family: museosans;">
 	<table class="sample" id="table">
 		<tr id="tr" height="80pt">
 			<td width="100%" id="0"></td>
@@ -263,8 +270,7 @@ td {
 		</tr>
 	</table>
 	<audio id="sound"> <source src="Notification.mp3"
-		type="audio/mpeg"> <source src="Notification.wav"
-		type="audio/wav"> <source src="Notification.ogg"
+		type="audio/mpeg"> <source src="Notification.ogg"
 		type="audio/ogg"></audio>
 </body>
 </html>
