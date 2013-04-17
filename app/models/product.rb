@@ -10,12 +10,13 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  access_port       :string(255)
+#  xml_data          :text
 #
 
 class Product < ActiveRecord::Base
   has_many :logs
   has_and_belongs_to_many :users
-  attr_accessible :mac_address, :optional_link, :product_type, :user_defined_name, :access_port, :user_ids
+  attr_accessible :mac_address, :optional_link, :product_type, :user_defined_name, :access_port, :user_ids, :xml_data
 
   def actual_ip_address
     logs.first.actual_ip_address if logs.any?
@@ -23,10 +24,6 @@ class Product < ActiveRecord::Base
 
   def custom_key
     logs.first.custom_key if logs.any?
-  end
-
-  def last_xml_data
-    logs.type_is_xml.first.message_data  if logs.type_is_xml.any?
   end
 
   def redirect_url

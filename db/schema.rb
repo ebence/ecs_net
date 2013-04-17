@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303102856) do
+ActiveRecord::Schema.define(:version => 20130416193934) do
 
   create_table "logs", :force => true do |t|
     t.integer  "product_id"
     t.string   "actual_ip_address"
     t.string   "message_type"
-    t.string   "message_data"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.text     "message_data",      :limit => 255
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "custom_key"
   end
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130303102856) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "access_port"
+    t.text     "xml_data"
   end
 
   create_table "products_users", :id => false, :force => true do |t|
