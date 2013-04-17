@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html style="height: 100%;">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<link rel="shortcut icon" href="favicon.ico" />
+<title>MDC</title>
+
+<script language="JavaScript">
+	var mac_address;
+    var settled_prev = new Array(false, false, false, false, false, false,
+            false, false);
+    function Getstate()
+    {
+	    var getstateRequest = false;
+	    var response = "";
+	    var need_sound = false;
+	    function getstateRequestComplete()
+	    {
+		    if (getstateRequest.readyState == 4)
+		    {
+			    if (getstateRequest.status == 200)
+			    {
+				    response = getstateRequest.responseText;
+				    if (window.DOMParser)
+				    {
+					    parser = new DOMParser();
+					    xmlDoc = parser.parseFromString(response, "text/xml");
+				    } else
+				    // Internet Explorer
+				    {
+					    xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+					    xmlDoc.async = false;
+					    xmlDoc.loadXML(response);
+				    }
+				    for (i = 0; i < 8; i++)
+				    {
+					    sensor = xmlDoc.getElementsByTagName("s")[i];
+					    if (parseBoolean(sensor.getAttribute("v")))
+					    {
+						    document.getElementById("" + i).innerHTML = sensor
+						            .getAttribute("d");
+						    settled = parseBoolean(sensor.getAttribute("s"));
+						    if (settled)
+						    {
+							    if (!settled_prev[i])
+							    {
+								    need_sound = true;
+								    settled_prev[i] = settled;
+							    }
+							    document.getElementById("" + i).style.backgroundImage = "url('piros_cella.png')";
+						    } else
+						    {
+							    document.getElementById("" + i).style.backgroundImage = "url('narancs_cella.png')";
+						    }
+					    } else
+					    {
+						    document.getElementById("" + i).innerHTML = "";
+						    document.getElementById("" + i).style.backgroundImage = "url('ures_cella.png')";
+					    }
+				    }
+				    if (need_sound)
+				    {
+					    playSound("Notification.ogg");
+				    }
+				    window.setTimeout(function()
+				    {
+					    Getstate();
+				    }, 600);
+			    } else
+			    {
+				    window.alert("Status=" + getstateRequest.status);
+			    }
+		    }
+	    }
+	    if (window.XMLHttpRequest)
+	    {
+		    getstateRequest = new XMLHttpRequest();
+	    } else if (window.ActiveXObject)
+	    {
+		    getstateRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+	    if (getstateRequest)
+	    {
+		    getstateRequest.open("GET", "/~erdos/MDC/Paci.xml?mac_address="
+		            + mac_address, true);
+		    getstateRequest.onreadystatechange = getstateRequestComplete;
+		    getstateRequest.send(null);
+	    }
+    }
+
+    function goFullscreen(id)
+    {
+	    // Get the element that we want to take into fullscreen mode
+	    var element = document.getElementById(id);
+
+	    // These function will not exist in the browsers that don't support fullscreen mode yet, 
+	    // so we'll have to check to see if they're available before calling them.
+
+	    if (element.mozRequestFullScreen)
+	    {
+		    // This is how to go into fullscren mode in Firefox
+		    // Note the "moz" prefix, which is short for Mozilla.
+		    element.mozRequestFullScreen();
+	    } else if (element.webkitRequestFullScreen)
+	    {
+		    // This is how to go into fullscreen mode in Chrome and Safari
+		    // Both of those browsers are based on the Webkit project, hence the same prefix.
+		    element.webkitRequestFullScreen();
+	    }
+	    // Hooray, now we're in fullscreen mode!
+    }
+
+    function onLoad()
+    {
+	    window.alert("MAC=" + get('mac_address'));
+	    mac_address = get('mac_address');
+	    Getstate();
+	    window.onresize = onResize;
+	    onResize();
+    }
+
+    function onResize()
+    {
+	    document.getElementById('table').style.fontSize = ""
+	            + (window.innerHeight / 12) + "pt";
+	    trs = document.getElementsByTagName('tr');
+	    if (window.innerHeight > window.innerWidth)
+	    {
+		    document.getElementById('table').innerHTML = "<tr id='tr' height='80pt'><td width='100%' id='0'></td></tr><tr id='tr' height='80pt'><td id='1'></td></tr><tr id='tr' height='80pt'><td id='2'></td></tr><tr id='tr' height='80pt'><td id='3'></td></tr><tr id='tr' height='80pt'><td id='4'></td></tr><tr id='tr' height='80pt'><td id='5'></td></tr><tr id='tr' height='80pt'><td id='6'></td></tr><tr id='tr' height='80pt'><td id='7'></td></tr>";
+	    } else
+	    {
+		    document.getElementById('table').innerHTML = "<tr height='25%'><td width='50%' id='0'></td><td width='50%' id='4'></td></tr><tr height='25%'><td id='1'></td><td id='5'></td></tr><tr height='25%'><td id='2'></td><td id='6'></td></tr><tr height='25%'><td id='3'></td><td id='7'></td></tr>";
+	    }
+	    for (i = 0; i < trs.length; i++)
+	    {
+		    if (window.innerHeight > window.innerWidth)
+		    {
+			    trs[i].style.height = "" + window.innerHeight / 6 + "pt";
+		    }
+	    }
+    }
+
+    function get(name)
+    {
+	    if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)'))
+	            .exec(location.search))
+		    return decodeURIComponent(name[1]);
+    }
+
+    function hideAddressBar()
+    {
+	    if (!window.location.hash)
+	    {
+		    if (document.height < window.outerHeight)
+		    {
+			    document.body.style.height = (window.outerHeight + 50) + 'px';
+		    }
+
+		    setTimeout(function()
+		    {
+			    window.scrollTo(0, 1);
+		    }, 50);
+	    }
+    }
+
+    function goFullscreen(id)
+    {
+	    // Get the element that we want to take into fullscreen mode
+	    var element = document.getElementById(id);
+
+	    // These function will not exist in the browsers that don't support fullscreen mode yet, 
+	    // so we'll have to check to see if they're available before calling them.
+
+	    if (element.mozRequestFullScreen)
+	    {
+		    // This is how to go into fullscren mode in Firefox
+		    // Note the "moz" prefix, which is short for Mozilla.
+		    element.mozRequestFullScreen();
+	    } else if (element.webkitRequestFullScreen)
+	    {
+		    // This is how to go into fullscreen mode in Chrome and Safari
+		    // Both of those browsers are based on the Webkit project, hence the same prefix.
+		    element.webkitRequestFullScreen();
+	    }
+	    // Hooray, now we're in fullscreen mode!
+    }
+
+    function parseBoolean(string)
+    {
+	    switch (String(string).toLowerCase())
+	    {
+	    case "true":
+	    case "1":
+	    case "yes":
+	    case "y":
+		    return true;
+	    case "false":
+	    case "0":
+	    case "no":
+	    case "n":
+		    return false;
+	    default:
+		    return undefined;
+	    }
+    }
+
+    function playSound(soundfile)
+    {
+	    document.getElementById("sound").play();
+    }
+</script>
+<style type="text/css">
+table.sample {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	border-width: 0px;
+	border-spacing: 0px;
+	border-style: none;
+	border-color: gray;
+	border-collapse: separate;
+	font-size: 40pt;
+}
+
+td {
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+</style>
+
+</head>
+<body onload="onLoad();" style="height: 100%; margin: 0px;">
+	<table class="sample" id="table">
+		<tr id="tr" height="80pt">
+			<td width="100%" id="0"></td>
+		</tr>
+		<tr id="tr" height="80pt">
+			<td id="1"></td>
+		</tr>
+		<tr id="tr" height="80pt">
+			<td id="2"></td>
+		</tr>
+		<tr id="tr" height="80pt">
+			<td id="3"></td>
+		</tr>
+		<tr id="tr" height="80pt">
+			<td id="4"></td>
+		</tr>
+		<tr id="tr" height="80pt">
+			<td id="5"></td>
+		</tr>
+		<tr id="tr" height="80pt">
+			<td id="6"></td>
+		</tr>
+		<tr id="tr" height="80pt">
+			<td id="7"></td>
+		</tr>
+	</table>
+	<audio id="sound"> <source src="Notification.mp3"
+		type="audio/mpeg"> <source src="Notification.wav"
+		type="audio/wav"> <source src="Notification.ogg"
+		type="audio/ogg"></audio>
+</body>
+</html>
