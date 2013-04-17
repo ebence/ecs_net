@@ -81,7 +81,7 @@
 	    }
 	    if (getstateRequest)
 	    {
-		    getstateRequest.open("GET", "/~erdos/MDC/Paci.xml?mac_address="
+		    getstateRequest.open("GET", "/products/last_data.xml?mac_address="
 		            + mac_address, true);
 		    getstateRequest.onreadystatechange = getstateRequestComplete;
 		    getstateRequest.send(null);
