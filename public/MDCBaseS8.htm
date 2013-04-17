@@ -66,6 +66,9 @@
 				    {
 					    Getstate();
 				    }, 600);
+			    } else if (getstateRequest.status == 401)
+			    {
+				    window.location = "http://ecs-net-staging.herokuapp.com/users/sign_in";
 			    } else
 			    {
 				    window.alert("Status=" + getstateRequest.status);
