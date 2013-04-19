@@ -19,3 +19,4 @@ package.box
 .idea/
 .vagrant
 Vagrantfile
+.svn/
