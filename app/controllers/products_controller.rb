@@ -2,16 +2,18 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!
 
   def last_data
-    if params[:mac_address] && product = Product.find_by_mac_address(params[:mac_address])
-
-      respond_to do |format|
-        format.xml {
-          render :xml => product.xml_data if product.xml_data
-        }
+    if params[:mac_address]
+      if product = Product.find_by_mac_address(params[:mac_address])
+        if current_user.products.include? product
+          respond_to do |format|
+            format.xml {
+              render :xml => product.xml_data if product.xml_data
+            }
+          end
+        end
       end
     end
   end
-
 
   def mac_address
     if params[:mac_address] && product = Product.find_by_mac_address(params[:mac_address])

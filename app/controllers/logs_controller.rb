@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
   before_filter :authenticate_user!, except: :add_log_entry
+
   def add_log_entry
     if params[:mac_address]
       product = Product.find_by_mac_address(params[:mac_address])
