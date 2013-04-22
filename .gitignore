@@ -22,4 +22,4 @@ Vagrantfile
 .svn/
 .settings/
 private
-public
+public/product
