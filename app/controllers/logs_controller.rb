@@ -1,21 +1,23 @@
 class LogsController < ApplicationController
   before_filter :authenticate_user!, except: :add_log_entry
-
   def add_log_entry
     if params[:mac_address]
       product = Product.find_by_mac_address(params[:mac_address])
-      if params[:message_type] == 'xml'
-        product.update_attributes :xml_data => params[:message_data]
-      else
-        product.logs.create(
-            :actual_ip_address => request.remote_ip,
-            :message_type => params[:message_type],
-            :message_data => params[:message_data],
-            :custom_key => params[:custom_key])
+      if product
+        if params[:message_type] == 'xml'
+          product.update_attributes :xml_data => params[:message_data]
+        else
+          product.logs.create(
+          :actual_ip_address => request.remote_ip,
+          :message_type => params[:message_type],
+          :message_data => params[:message_data],
+          :custom_key => params[:custom_key])
+        end
       end
     end
     render :nothing => true
   end
+
   # GET /logs
   # GET /logs.json
   def index
