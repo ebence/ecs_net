@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
             }
           end
         else
-          redirect_to "/products"
+          redirect_to products_path
         end
       end
     end
