@@ -20,3 +20,4 @@ package.box
 .vagrant
 Vagrantfile
 .svn/
+.settings/
