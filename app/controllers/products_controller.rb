@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
               render :xml => product.xml_data if product.xml_data
             }
           end
+        else
+          redirect_to "/products"
         end
       end
     end
