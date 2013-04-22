@@ -14,7 +14,7 @@ EcsNet::Application.routes.draw do
     end
   end
 
-  match '*private' => 'private#serve'
+  match 'private/*url' => 'private#serve'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
