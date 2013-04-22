@@ -3,7 +3,7 @@ class PrivateController < ApplicationController
 
   def serve
     send_file("#{Rails.root}#{request.fullpath}")
-    puts "#{Rails.root}#{request.fullpath}"
+    #puts "#{Rails.root}#{request.fullpath}"
     #render :nothing => true 
   end
 
