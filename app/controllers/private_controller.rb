@@ -2,7 +2,7 @@ class PrivateController < ApplicationController
   before_filter :authenticate_user!
 
   def serve
-    send_data(File.read("#{Rails.root}#{request.fullpath}"))
+    send_data(File.read("#{Rails.root}/app#{request.fullpath}"))
     #puts "#{Rails.root}#{request.fullpath}"
     #render :nothing => true 
   end
