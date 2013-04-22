@@ -21,3 +21,5 @@ package.box
 Vagrantfile
 .svn/
 .settings/
+private
+public
