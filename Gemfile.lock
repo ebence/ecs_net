@@ -185,6 +185,7 @@ DEPENDENCIES
   devise
   devise_security_extension
   jquery-rails
+  nokogiri
   pg
   rails (= 3.2.12)
   rails_admin
