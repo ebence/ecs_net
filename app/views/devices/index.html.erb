@@ -1,0 +1,32 @@
+<%- model_class = Device -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<% @devices.each do |device| %>
+    <div class="row">
+      <div class="span4 offset1">
+        <%= link_to device.user_defined_name,
+                    device.optional_link.empty? ? mac_address_devices_path(:mac_address => device.mac_address) : "#{device.optional_link}?mac_address=#{device.mac_address}",
+                    :target => "_blank" %>
+      </div>
+      <% if current_user.admin %>
+      <div class="span1">
+        <%= link_to t('.show_logs'), device_logs_path(device), :class => 'btn btn-mini' %>
+      </div>
+      <div class="span4" align="right" style="color: <%= (Time.zone.now - device.updated_at)>1800 ? 'red':'green'%>">
+        Device: <%= device.updated_at.utc.in_time_zone("Budapest") %>
+      </div>
+      <div class="span4" align="right" style="color: <%= (Time.zone.now - device.logs.first.updated_at)>1800 ? 'red':'green' if device.logs.first%>">
+        Logs: <%= device.logs.first.updated_at.utc.in_time_zone("Budapest") if device.logs.first %>
+      </div>
+      <% end %>
+    </div>
+    &nbsp
+    &nbsp
+    &nbsp
+<% end %>
+<% if @devices.count==0 %>
+<p>
+	<%= t('no_devices')%>
+</p>
+<% end %>

@@ -3,7 +3,7 @@
 # Table name: logs
 #
 #  id                :integer          not null, primary key
-#  product_id        :integer
+#  device_id        :integer
 #  actual_ip_address :string(255)
 #  message_type      :string(255)
 #  message_data      :text(255)
@@ -15,14 +15,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  products: 
+  devices: 
   actual_ip_address: MyString
   actual_port: MyString
   message_type: MyString
   message_data: MyString
 
 two:
-  products: 
+  devices: 
   actual_ip_address: MyString
   actual_port: MyString
   message_type: MyString

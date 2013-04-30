@@ -70,10 +70,10 @@
 				    }, 600);
 			    } else if (getstateRequest.status == 401)
 			    {
-				    window.location = "http://ecs-net-staging.herokuapp.com/users/sign_in";
+				    window.location = "http://www.ecs-solutions.hu/users/sign_in";
 			    } else
 			    {
-				    window.location = "http://ecs-net-staging.herokuapp.com/users/sign_in";
+				    window.location = "http://www.ecs-solutions.hu/users/sign_in";
 				    //window.alert("Status=" + getstateRequest.status);
 			    }
 		    }
@@ -87,7 +87,7 @@
 	    }
 	    if (getstateRequest)
 	    {
-		    getstateRequest.open("GET", "/products/last_data.xml?mac_address="
+		    getstateRequest.open("GET", "/devices/last_data.xml?mac_address="
 		            + mac_address, true);
 		    getstateRequest.onreadystatechange = getstateRequestComplete;
 		    getstateRequest.send(null);

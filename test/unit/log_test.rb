@@ -3,7 +3,7 @@
 # Table name: logs
 #
 #  id                :integer          not null, primary key
-#  product_id        :integer
+#  device_id        :integer
 #  actual_ip_address :string(255)
 #  message_type      :string(255)
 #  message_data      :text(255)

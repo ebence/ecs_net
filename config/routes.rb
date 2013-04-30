@@ -8,7 +8,7 @@ EcsNet::Application.routes.draw do
       end
     end
 
-    resources :products do
+    resources :devices do
       resources :logs
       collection do
         get 'mac_address'
@@ -16,34 +16,30 @@ EcsNet::Application.routes.draw do
       end
     end
 
-    match "pages/set_locale" => 'pages#set_locale', :as => 'set_locale'
-
     match 'private/*url' => 'private#serve'
 
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
     get "pages/home"
     
-    get "/:page" => "pages#show"
-
     devise_for :users
 
     # The priority is based upon order of creation:
     # first created -> highest priority.
 
     # Sample of regular route:
-    #   match 'products/:id' => 'catalog#view'
+    #   match 'devices/:id' => 'catalog#view'
     # Keep in mind you can assign values other than :controller and :action
 
     # Sample of named route:
-    #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-    # This route can be invoked with purchase_url(:id => product.id)
+    #   match 'devices/:id/purchase' => 'catalog#purchase', :as => :purchase
+    # This route can be invoked with purchase_url(:id => device.id)
 
     # Sample resource route (maps HTTP verbs to controller actions automatically):
-    #   resources :products
+    #   resources :devices
 
     # Sample resource route with options:
-    #   resources :products do
+    #   resources :devices do
     #     member do
     #       get 'short'
     #       post 'toggle'
@@ -55,13 +51,13 @@ EcsNet::Application.routes.draw do
     #   end
 
     # Sample resource route with sub-resources:
-    #   resources :products do
+    #   resources :devices do
     #     resources :comments, :sales
     #     resource :seller
     #   end
 
     # Sample resource route with more complex sub-resources
-    #   resources :products do
+    #   resources :devices do
     #     resources :comments
     #     resources :sales do
     #       get 'recent', :on => :collection
@@ -70,14 +66,16 @@ EcsNet::Application.routes.draw do
 
     # Sample resource route within a namespace:
     #   namespace :admin do
-    #     # Directs /admin/products/* to Admin::ProductsController
-    #     # (app/controllers/admin/products_controller.rb)
-    #     resources :products
+    #     # Directs /admin/devices/* to Admin::DevicesController
+    #     # (app/controllers/admin/devices_controller.rb)
+    #     resources :devices
     #   end
 
     # You can have the root of your site routed with "root"
     # just remember to delete public/index.html.
     root :to => "pages#home"
+
+    get "/:page" => "pages#show"
 
   end
 

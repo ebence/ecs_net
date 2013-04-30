@@ -12,9 +12,9 @@ en:
   didnt_rec_confirmation: "Didn't receive confirmation instructions?"
   didnt_rec_unlock: "Didn't receive unlock instructions?"
   signed_in_as: "Signed in as:"
-  no_products: "You don't have any products yet."
+  no_devices: "You don't have any devices yet."
 
-  products:
+  devices:
     index:
       title: "My devices"
       show_logs: "Show logs"

@@ -12,9 +12,9 @@ hu:
   didnt_rec_confirmation: "Nem kapott megerősítési információkat?"
   didnt_rec_unlock: "Nem kapott feloldási információkat?"
   signed_in_as: "Bejelentkezve:"
-  no_products: "Önnek még nincs saját eszköze."
+  no_devices: "Önnek még nincs saját eszköze."
   
-  products:
+  devices:
     index:
       title: "Saját eszközeim"
       show_logs: "Napló"

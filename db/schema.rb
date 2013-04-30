@@ -11,68 +11,68 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416193934) do
+ActiveRecord::Schema.define(:version => 20130430140955) do
 
-  create_table "logs", :force => true do |t|
-    t.integer  "product_id"
-    t.string   "actual_ip_address"
-    t.string   "message_type"
-    t.text     "message_data",      :limit => 255
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-    t.string   "custom_key"
-  end
-
-  add_index "logs", ["product_id"], :name => "index_logs_on_product_id"
-
-  create_table "products", :force => true do |t|
+  create_table "devices", :force => true do |t|
     t.string   "mac_address"
     t.string   "user_defined_name"
     t.string   "optional_link"
-    t.string   "product_type"
+    t.string   "device_type"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "access_port"
     t.text     "xml_data"
   end
 
-  create_table "products_users", :id => false, :force => true do |t|
-    t.integer "product_id"
+  create_table "devices_users", :id => false, :force => true do |t|
+    t.integer "device_id"
     t.integer "user_id"
   end
 
+  create_table "logs", :force => true do |t|
+    t.integer  "device_id"
+    t.string   "actual_ip_address"
+    t.string   "message_type"
+    t.text     "message_data"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "custom_key"
+  end
+
+  add_index "logs", ["device_id"], :name => "index_logs_on_product_id"
+
   create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.text      "message"
+    t.string    "username"
+    t.integer   "item"
+    t.string    "table"
+    t.integer   "month"
+    t.integer   "year"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                :default => "",    :null => false
-    t.string   "encrypted_password",                   :default => "",    :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                        :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.boolean  "admin",                                :default => false
-    t.string   "unique_session_id",      :limit => 20
+    t.string    "email",                                :default => "",    :null => false
+    t.string    "encrypted_password",                   :default => "",    :null => false
+    t.string    "reset_password_token"
+    t.timestamp "reset_password_sent_at"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",                        :default => 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
+    t.string    "current_sign_in_ip"
+    t.string    "last_sign_in_ip"
+    t.timestamp "created_at",                                              :null => false
+    t.timestamp "updated_at",                                              :null => false
+    t.string    "confirmation_token"
+    t.timestamp "confirmed_at"
+    t.timestamp "confirmation_sent_at"
+    t.string    "unconfirmed_email"
+    t.boolean   "admin",                                :default => false
+    t.string    "unique_session_id",      :limit => 20
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

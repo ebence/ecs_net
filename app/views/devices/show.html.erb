@@ -1,26 +1,26 @@
-<%- model_class = Product -%>
+<%- model_class = Device -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:mac_address) %>:</strong></dt>
-  <dd><%= @product.mac_address %></dd>
+  <dd><%= @device.mac_address %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_defined_name) %>:</strong></dt>
-  <dd><%= @product.user_defined_name %></dd>
+  <dd><%= @device.user_defined_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:optional_link) %>:</strong></dt>
-  <dd><%= @product.optional_link %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:product_type) %>:</strong></dt>
-  <dd><%= @product.product_type %></dd>
+  <dd><%= @device.optional_link %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:device_type) %>:</strong></dt>
+  <dd><%= @device.device_type %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              products_path, :class => 'btn'  %>
+              devices_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_product_path(@product), :class => 'btn' %>
+              edit_device_path(@device), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              product_path(@product),
+              device_path(@device),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

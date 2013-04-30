@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:product_id) %></th>
+      <th><%= model_class.human_attribute_name(:device_id) %></th>
       <th><%= model_class.human_attribute_name(:actual_ip_address) %></th>
       <th><%= model_class.human_attribute_name(:message_type) %></th>
       <th><%= model_class.human_attribute_name(:message_data) %></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @logs.each do |log| %>
       <tr>
-        <td><%= log.product_id %></td>
+        <td><%= log.device_id %></td>
         <td><%= log.actual_ip_address %></td>
         <td><%= log.message_type %></td>
         <td><%= log.message_data %></td>
