@@ -6,7 +6,7 @@ class LogsController < ApplicationController
       if params[:message_type] == 'xml'
         product.update_attributes :xml_data => params[:message_data]
         doc = Nokogiri::XML(params[:message_data])
-        name =  doc.children()[0].attr('name')
+        name =  doc.children()[0].attr('name') if doc.children()[0]
         product.update_attributes :user_defined_name => name if name
       else
         product.logs.create(

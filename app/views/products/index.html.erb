@@ -12,6 +12,12 @@
       <div class="span1">
         <%= link_to t('.show_logs'), product_logs_path(product), :class => 'btn btn-mini' if current_user.admin %>
       </div>
+      <div class="span4" align="right">
+        Product: <%= product.updated_at.localtime if current_user.admin %>
+      </div>
+      <div class="span4" align="right">
+        Logs: <%= product.logs.first.updated_at.localtime if current_user.admin %>
+      </div>
     </div>
     &nbsp
     &nbsp
