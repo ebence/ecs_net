@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  welcome: "Welcome"
+  welcome_to: "... to ECS-Solutions!"
+  under_construction: "The page is under construction, please be patient!"
+  sign_in: "Sign in"
+  sign_out: "Sign out"
+  sign_up: "Sign up"
+  forgot_password: "Forgot your password?"
+  didnt_rec_confirmation: "Didn't receive confirmation instructions?"
+  didnt_rec_unlock: "Didn't receive unlock instructions?"

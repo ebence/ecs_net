@@ -1,0 +1,342 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+hu:
+  welcome: "Üdvözöljük"
+  welcome_to: "... az ECS-Solutions honlapján!"
+  under_construction: "Az oldal fejlesztés alatt áll. Megértését köszönjük!"
+  sign_in: "Bejelentkezés"
+  sign_out: "Kijelentkezés"
+  sign_up: "Regisztráció"
+  forgot_password: "Elfelejtette jelszavát?"
+  didnt_rec_confirmation: "Nem kapott megerősítési információkat?"
+  didnt_rec_unlock: "Nem kapott feloldási információkat?"
+
+  admin:
+    actions:
+      bulk_delete:
+        breadcrumb: Multiple delete
+        bulk_link: Delete selected %{model_label_plural}
+        menu: Multiple delete
+        title: Delete %{model_label_plural}
+      dashboard:
+        breadcrumb: Dashboard
+        menu: Dashboard
+        title: Site administration
+      delete:
+        breadcrumb: Delete
+        done: deleted
+        link: Delete '%{object_label}'
+        menu: Delete
+        title: Delete %{model_label} '%{object_label}'
+      edit:
+        breadcrumb: Edit
+        done: updated
+        link: Edit this %{model_label}
+        menu: Edit
+        title: Edit %{model_label} '%{object_label}'
+      export:
+        breadcrumb: Export
+        bulk_link: Export selected %{model_label_plural}
+        done: exported
+        link: Export found %{model_label_plural}
+        menu: Export
+        title: Export %{model_label_plural}
+      history_index:
+        breadcrumb: History
+        menu: History
+        title: History for %{model_label_plural}
+      history_show:
+        breadcrumb: History
+        menu: History
+        title: History for %{model_label} '%{object_label}'
+      index:
+        breadcrumb: ! '%{model_label_plural}'
+        menu: List
+        title: List of %{model_label_plural}
+      new:
+        breadcrumb: New
+        done: created
+        link: Add a new %{model_label}
+        menu: Add new
+        title: New %{model_label}
+      show:
+        breadcrumb: ! '%{object_label}'
+        menu: Show
+        title: Details for %{model_label} '%{object_label}'
+      show_in_app:
+        menu: Show in app
+    export:
+      click_to_reverse_selection: Click to reverse selection
+      confirmation: Export to %{name}
+      csv:
+        col_sep: Column separator
+        col_sep_help: Leave blank for default ('%{value}')
+        default_col_sep: ! ','
+        encoding_to: Encode to
+        encoding_to_help: ! 'Choose output encoding. Leave empty to let current input encoding untouched: (%{name})'
+        header_for_association_methods: ! '%{name} [%{association}]'
+        header_for_root_methods: ! '%{name}'
+        skip_header: No header
+        skip_header_help: Do not output a header (no fields description)
+      display: ! 'Display %{name}: %{type}'
+      empty_value_for_associated_objects: <empty>
+      fields_from: Fields from %{name}
+      fields_from_associated: Fields from associated %{name}
+      options_for: Options for %{name}
+      select: Select fields to export
+    flash:
+      error: ! '%{name} failed to be %{action}'
+      model_not_found: Model '%{model}' could not be found
+      noaction: No actions were taken
+      object_not_found: ! '%{model} with id ''%{id}'' could not be found'
+      successful: ! '%{name} successfully %{action}'
+    form:
+      all_of_the_following_related_items_will_be_deleted: ! '? The following related items may be deleted or orphaned:'
+      are_you_sure_you_want_to_delete_the_object: Are you sure you want to delete this %{model_name}
+      basic_info: Basic info
+      bulk_delete: ! 'The following objects will be deleted, which may delete or orphan some of their related dependencies:'
+      cancel: Cancel
+      char_length_of: length of
+      char_length_up_to: length up to
+      confirmation: Yes, I'm sure
+      new_model: ! '%{name} (new)'
+      one_char: character
+      optional: Optional
+      required: Required
+      save: Save
+      save_and_add_another: Save and add another
+      save_and_edit: Save and edit
+    misc:
+      add_filter: Add filter
+      add_new: Add new
+      ago: ago
+      bulk_menu_title: Selected items
+      chose_all: Choose all
+      chosen: Chosen %{name}
+      clear_all: Clear all
+      down: Down
+      filter: Filter
+      filter_date_format: mm/dd/yy
+      log_out: Log out
+      navigation: Navigation
+      refresh: Refresh
+      remove: Remove
+      search: Search
+      show_all: Show all
+      up: Up
+    table_headers:
+      changes: Changes
+      created_at: Date/Time
+      item: Item
+      last_used: Last used
+      message: Message
+      model_name: Model name
+      records: Records
+      username: User
+    home:
+      name: Home
+    views:
+      pagination:
+        next: Next &raquo;
+        previous: ! '&laquo; Prev'
+        truncate: â€¦
+  
+  date:
+    abbr_day_names:
+    - v.
+    - h.
+    - k.
+    - sze.
+    - cs.
+    - p.
+    - szo.
+    abbr_month_names:
+    -
+    - jan.
+    - febr.
+    - márc.
+    - ápr.
+    - máj.
+    - jún.
+    - júl.
+    - aug.
+    - szept.
+    - okt.
+    - nov.
+    - dec.
+    day_names:
+    - vasárnap
+    - hétfő
+    - kedd
+    - szerda
+    - csütörtök
+    - péntek
+    - szombat
+    formats:
+      default: ! '%Y.%m.%d.'
+      long: ! '%Y. %B %e.'
+      short: ! '%b %e.'
+    month_names:
+    -
+    - január
+    - február
+    - március
+    - április
+    - május
+    - június
+    - július
+    - augusztus
+    - szeptember
+    - október
+    - november
+    - december
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: kb 1 óra
+        other: kb %{count} óra
+      about_x_months:
+        one: kb 1 hónap
+        other: kb %{count} hónap
+      about_x_years:
+        one: kb 1 év
+        other: kb %{count} év
+      almost_x_years:
+        one: majdnem 1 év
+        other: majdnem %{count} év
+      half_a_minute: fél perc
+      less_than_x_minutes:
+        one: kevesebb, mint 1 perc
+        other: kevesebb, mint %{count} perc
+      less_than_x_seconds:
+        one: kevesebb, mint 1 másodperc
+        other: kevesebb, mint %{count} másodperc
+      over_x_years:
+        one: több, mint 1 év
+        other: több, mint %{count} év
+      x_days:
+        one: 1 nap
+        other: ! '%{count} nap'
+      x_minutes:
+        one: 1 perc
+        other: ! '%{count} perc'
+      x_months:
+        one: 1 hónap
+        other: ! '%{count} hónap'
+      x_seconds:
+        one: 1 másodperc
+        other: ! '%{count} másodperc'
+    prompts:
+      day: Nap
+      hour: Óra
+      minute: Perc
+      month: Hónap
+      second: Másodperc
+      year: Év
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: nincs elfogadva
+      blank: nincs megadva
+      confirmation: nem egyezik
+      empty: nincs megadva
+      equal_to: pontosan %{count} kell legyen
+      even: páros kell legyen
+      exclusion: nem elérhető
+      greater_than: nagyobb kell legyen, mint %{count}
+      greater_than_or_equal_to: legalább %{count} kell legyen
+      inclusion: nincs a listában
+      invalid: nem megfelelő
+      less_than: kevesebb, mint %{count} kell legyen
+      less_than_or_equal_to: legfeljebb %{count} lehet
+      not_a_number: nem szám
+      not_an_integer: egész számnak kell lennie
+      odd: páratlan kell legyen
+      record_invalid: Sikertelen validálás %{errors}
+      taken: már foglalt
+      too_long: túl hosszú (nem lehet több %{count} karakternél)
+      too_short: túl rövid (legalább %{count} karakter kell legyen)
+      wrong_length: nem megfelelő hosszúságú (%{count} karakter szükséges)
+    template:
+      body: ! 'Problémás mezők:'
+      header:
+        one: ! '1 hiba miatt nem menthető a következő: %{model}'
+        other: ! '%{count} hiba miatt nem menthető a következő: %{model}'
+  helpers:
+    select:
+      prompt: Válasszon
+    submit:
+      create: Új %{model}
+      submit: ! '%{model} Mentése'
+      update: ! '%{model} Módosítása'
+  number:
+    currency:
+      format:
+        delimiter: ''
+        format: ! '%n %u'
+        precision: 0
+        separator: ! ','
+        significant: true
+        strip_insignificant_zeros: true
+        unit: Ft
+    format:
+      delimiter: ! ' '
+      precision: 2
+      separator: ! ','
+      significant: true
+      strip_insignificant_zeros: true
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: Milliárd
+          million: Millió
+          quadrillion: Kvadrillió
+          thousand: Ezer
+          trillion: Trillió
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: bájt
+            other: bájt
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ' és '
+      two_words_connector: ! ' és '
+      words_connector: ! ', '
+  time:
+    am: de.
+    formats:
+      default: ! '%Y. %b %e., %H:%M'
+      long: ! '%Y. %B %e., %A, %H:%M'
+      short: ! '%b %e., %H:%M'
+    pm: du.
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
