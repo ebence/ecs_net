@@ -1,0 +1,13 @@
+hu:
+  errors:
+    messages:
+      taken_in_past: "már használatban van!"
+      equal_to_current_password: "a jelenlegi jelszótól eltérőnek kell lennie!"
+  devise:
+    invalid_captcha: "A captcha mező érvénytelen!"
+    password_expired:
+      updated: "Az új jelszavát mentettük."
+      change_required: "Jelszava lejárt. Kérjük, újítsa meg jelszavát!"
+    failure:
+      session_limited: 'Bejelentkezési adatait egy másik böngészőből használják. A folytatáshoz kérjük, jelentkezzen be ismét!'
+      expired: 'Inaktivitás miatt fiókja lejárt. Kérjük keresse fel az oldal adminisztrátorát!'
