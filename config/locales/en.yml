@@ -11,3 +11,8 @@ en:
   forgot_password: "Forgot your password?"
   didnt_rec_confirmation: "Didn't receive confirmation instructions?"
   didnt_rec_unlock: "Didn't receive unlock instructions?"
+
+  products:
+    index:
+      title: "My devices"
+      show_logs: "Show logs"

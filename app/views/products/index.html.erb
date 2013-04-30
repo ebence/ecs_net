@@ -10,7 +10,7 @@
                     :target => "_blank" %>
       </div>
       <div class="span1">
-        <%= link_to "Show logs", product_logs_path(product), :class => 'btn btn-mini' if current_user.admin %>
+        <%= link_to t('.show_logs'), product_logs_path(product), :class => 'btn btn-mini' if current_user.admin %>
       </div>
     </div>
     &nbsp

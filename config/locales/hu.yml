@@ -11,6 +11,11 @@ hu:
   forgot_password: "Elfelejtette jelszavát?"
   didnt_rec_confirmation: "Nem kapott megerősítési információkat?"
   didnt_rec_unlock: "Nem kapott feloldási információkat?"
+  
+  products:
+    index:
+      title: "Saját eszközeim"
+      show_logs: "Napló"
 
   admin:
     actions:
