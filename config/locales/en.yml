@@ -11,6 +11,7 @@ en:
   forgot_password: "Forgot your password?"
   didnt_rec_confirmation: "Didn't receive confirmation instructions?"
   didnt_rec_unlock: "Didn't receive unlock instructions?"
+  signed_in_as: "Signed in as:"
 
   products:
     index:
