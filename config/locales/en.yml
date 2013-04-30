@@ -12,6 +12,7 @@ en:
   didnt_rec_confirmation: "Didn't receive confirmation instructions?"
   didnt_rec_unlock: "Didn't receive unlock instructions?"
   signed_in_as: "Signed in as:"
+  no_products: "You don't have any products yet."
 
   products:
     index:

@@ -25,3 +25,8 @@
     &nbsp
     &nbsp
 <% end %>
+<% if @products.count==0 %>
+<p>
+	<%= t('no_products')%>
+</p>
+<% end %>
