@@ -5,6 +5,7 @@ class LogsController < ApplicationController
     if params[:mac_address] && product = Product.find_by_mac_address(params[:mac_address])
       if params[:message_type] == 'xml'
         product.update_attributes :xml_data => params[:message_data]
+        product.update_attribute(:updated_at,Time.now)
         doc = Nokogiri::XML(params[:message_data])
         name =  doc.children()[0].attr('name') if doc.children()[0]
         product.update_attributes :user_defined_name => name if name
