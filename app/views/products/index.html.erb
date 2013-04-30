@@ -14,10 +14,10 @@
         <%= link_to t('.show_logs'), product_logs_path(product), :class => 'btn btn-mini' %>
       </div>
       <div class="span4" align="right">
-        Product: <%= product.updated_at.localtime %>
+        Product: <%= product.updated_at.utc.in_time_zone("Budapest") %>
       </div>
       <div class="span4" align="right">
-        Logs: <%= product.logs.first.updated_at.localtime %>
+        Logs: <%= product.logs.first.updated_at.utc.in_time_zone("Budapest") %>
       </div>
       <% end %>
     </div>
