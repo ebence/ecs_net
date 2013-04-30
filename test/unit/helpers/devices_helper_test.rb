@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class ProductsHelperTest < ActionView::TestCase
+class DevicesHelperTest < ActionView::TestCase
 end

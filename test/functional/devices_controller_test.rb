@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class ProductsControllerTest < ActionController::TestCase
+class DevicesControllerTest < ActionController::TestCase
   setup do
-    @product = products(:one)
+    @device = devices(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:products)
+    assert_not_nil assigns(:devices)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class ProductsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create product" do
-    assert_difference('Product.count') do
-      post :create, product: { mac_address: @product.mac_address, optional_link: @product.optional_link, product_type: @product.product_type, user_defined_name: @product.user_defined_name }
+  test "should create device" do
+    assert_difference('Device.count') do
+      post :create, device: { mac_address: @device.mac_address, optional_link: @device.optional_link, device_type: @device.device_type, user_defined_name: @device.user_defined_name }
     end
 
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to device_path(assigns(:device))
   end
 
-  test "should show product" do
-    get :show, id: @product
+  test "should show device" do
+    get :show, id: @device
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @product
+    get :edit, id: @device
     assert_response :success
   end
 
-  test "should update product" do
-    put :update, id: @product, product: { mac_address: @product.mac_address, optional_link: @product.optional_link, product_type: @product.product_type, user_defined_name: @product.user_defined_name }
-    assert_redirected_to product_path(assigns(:product))
+  test "should update device" do
+    put :update, id: @device, device: { mac_address: @device.mac_address, optional_link: @device.optional_link, device_type: @device.device_type, user_defined_name: @device.user_defined_name }
+    assert_redirected_to device_path(assigns(:device))
   end
 
-  test "should destroy product" do
-    assert_difference('Product.count', -1) do
-      delete :destroy, id: @product
+  test "should destroy device" do
+    assert_difference('Device.count', -1) do
+      delete :destroy, id: @device
     end
 
-    assert_redirected_to products_path
+    assert_redirected_to devices_path
   end
 end

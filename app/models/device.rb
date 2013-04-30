@@ -1,22 +1,22 @@
 # == Schema Information
 #
-# Table name: products
+# Table name: devices
 #
 #  id                :integer          not null, primary key
 #  mac_address       :string(255)
 #  user_defined_name :string(255)
 #  optional_link     :string(255)
-#  product_type      :string(255)
+#  device_type      :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  access_port       :string(255)
 #  xml_data          :text
 #
 
-class Product < ActiveRecord::Base
+class Device < ActiveRecord::Base
   has_many :logs
   has_and_belongs_to_many :users
-  attr_accessible :mac_address, :optional_link, :product_type, :user_defined_name, :access_port, :user_ids, :xml_data
+  attr_accessible :mac_address, :optional_link, :device_type, :user_defined_name, :access_port, :user_ids, :xml_data
 
   def actual_ip_address
     logs.first.actual_ip_address if logs.any?

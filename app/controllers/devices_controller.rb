@@ -1,107 +1,107 @@
-class ProductsController < ApplicationController
+class DevicesController < ApplicationController
   before_filter :authenticate_user!
 
   def last_data
     if params[:mac_address]
-      if product = Product.find_by_mac_address(params[:mac_address])
-        if current_user.products.include? product
+      if device = Device.find_by_mac_address(params[:mac_address])
+        if current_user.devices.include? device
           respond_to do |format|
             format.xml {
-              render :xml => product.xml_data if product.xml_data
+              render :xml => device.xml_data if device.xml_data
             }
           end
         else
-          redirect_to products_path
+          redirect_to devices_path
         end
       end
     end
   end
 
   def mac_address
-    if params[:mac_address] && product = Product.find_by_mac_address(params[:mac_address])
+    if params[:mac_address] && device = Device.find_by_mac_address(params[:mac_address])
 
-      redirect_to product.redirect_url
+      redirect_to device.redirect_url
     end
   end
 
-  # GET /products
-  # GET /products.json
+  # GET /devices
+  # GET /devices.json
   def index
-    @products = current_user.products
+    @devices = current_user.devices
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @products }
+      format.json { render json: @devices }
     end
   end
 
-  # GET /products/1
-  # GET /products/1.json
+  # GET /devices/1
+  # GET /devices/1.json
   def show
-    @product = Product.find(params[:id])
+    @device = Device.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @product }
+      format.json { render json: @device }
     end
   end
 
-  # GET /products/new
-  # GET /products/new.json
+  # GET /devices/new
+  # GET /devices/new.json
   def new
-    @product = Product.new
+    @device = Device.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @product }
+      format.json { render json: @device }
     end
   end
 
-  # GET /products/1/edit
+  # GET /devices/1/edit
   def edit
-    @product = Product.find(params[:id])
+    @device = Device.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.json
+  # POST /devices
+  # POST /devices.json
   def create
-    @product = Product.new(params[:product])
+    @device = Device.new(params[:device])
 
     respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render json: @product, status: :created, location: @product }
+      if @device.save
+        format.html { redirect_to @device, notice: 'device was successfully created.' }
+        format.json { render json: @device, status: :created, location: @device }
       else
         format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: @device.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.json
+  # PUT /devices/1
+  # PUT /devices/1.json
   def update
-    @product = Product.find(params[:id])
+    @device = Device.find(params[:id])
 
     respond_to do |format|
-      if @product.update_attributes(params[:product])
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+      if @device.update_attributes(params[:device])
+        format.html { redirect_to @device, notice: 'device was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: @device.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
+  # DELETE /devices/1
+  # DELETE /devices/1.json
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
+    @device = Device.find(params[:id])
+    @device.destroy
 
     respond_to do |format|
-      format.html { redirect_to products_url }
+      format.html { redirect_to devices_url }
       format.json { head :no_content }
     end
   end

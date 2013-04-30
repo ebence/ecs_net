@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: products
+# Table name: devices
 #
 #  id                :integer          not null, primary key
 #  mac_address       :string(255)
 #  user_defined_name :string(255)
 #  optional_link     :string(255)
-#  product_type      :string(255)
+#  device_type      :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  access_port       :string(255)
@@ -19,10 +19,10 @@ one:
   mac_address: MyString
   user_defined_name: MyString
   optional_link: MyString
-  product_type: MyString
+  device_type: MyString
 
 two:
   mac_address: MyString
   user_defined_name: MyString
   optional_link: MyString
-  product_type: MyString
+  device_type: MyString
