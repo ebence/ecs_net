@@ -13,10 +13,10 @@
       <div class="span1">
         <%= link_to t('.show_logs'), product_logs_path(product), :class => 'btn btn-mini' %>
       </div>
-      <div class="span4" align="right">
+      <div class="span4" align="right" style="color: <%= (Time.zone.now - product.updated_at)>1800 ? 'red':'green'%>">
         Product: <%= product.updated_at.utc.in_time_zone("Budapest") %>
       </div>
-      <div class="span4" align="right">
+      <div class="span4" align="right" style="color: <%= (Time.zone.now - product.logs.first.updated_at)>1800 ? 'red':'green'%>">
         Logs: <%= product.logs.first.updated_at.utc.in_time_zone("Budapest") %>
       </div>
       <% end %>
