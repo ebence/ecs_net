@@ -9,15 +9,17 @@
                     product.optional_link.empty? ? mac_address_products_path(:mac_address => product.mac_address) : "#{product.optional_link}?mac_address=#{product.mac_address}",
                     :target => "_blank" %>
       </div>
+      <% if current_user.admin %>
       <div class="span1">
-        <%= link_to t('.show_logs'), product_logs_path(product), :class => 'btn btn-mini' if current_user.admin %>
+        <%= link_to t('.show_logs'), product_logs_path(product), :class => 'btn btn-mini' %>
       </div>
       <div class="span4" align="right">
-        Product: <%= product.updated_at.localtime if current_user.admin %>
+        Product: <%= product.updated_at.localtime %>
       </div>
       <div class="span4" align="right">
-        Logs: <%= product.logs.first.updated_at.localtime if current_user.admin %>
+        Logs: <%= product.logs.first.updated_at.localtime %>
       </div>
+      <% end %>
     </div>
     &nbsp
     &nbsp
