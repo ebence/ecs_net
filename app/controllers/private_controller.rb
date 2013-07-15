@@ -57,6 +57,7 @@ class PrivateController < ApplicationController
         http.request request do |resp|
           resp.read_body do |chunk|
             yield chunk
+            GC.start
           end
         end
       end
