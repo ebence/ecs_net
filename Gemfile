@@ -9,7 +9,6 @@ gem 'simple_form'
 gem 'rails_admin'
 gem 'annotate'
 gem 'nokogiri'
-gem 'tabulous'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
