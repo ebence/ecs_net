@@ -18,3 +18,10 @@ en:
     index:
       title: "My devices"
       show_logs: "Show logs"
+      
+  devise:
+    views:
+      forgot_your_password: "Forgot your password?"
+      send_me_reset: "Send me reset password instructions"
+      resend_confirmation: "Resend confirmation instructions"
+      

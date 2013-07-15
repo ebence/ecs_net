@@ -18,6 +18,12 @@ hu:
     index:
       title: "Saját eszközeim"
       show_logs: "Napló"
+      
+  devise:
+    views:
+      forgot_your_password: "Elfelejtette jelszavát?"
+      send_me_reset: "Jelszó visszaállítása"
+      resend_confirmation: "Megerősítési információk újraküldése"
 
   admin:
     actions:
