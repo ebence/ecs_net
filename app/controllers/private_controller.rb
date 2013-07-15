@@ -15,6 +15,7 @@ class PrivateController < ApplicationController
     self.response.headers["Content-Type"] = 'application/octet-stream'
     self.response.headers["Content-Disposition"] = "attachment; filename=#{File.basename(request.fullpath)}"
     self.response.headers['Cache-Control'] = 'no-cache'
+    self.response.headers['Last-Modified'] = Time.now.ctime.to_s
     self.response_body = Streamer.new(request.fullpath)
 
   #self.response_body = proc { |response, output| output.write("Hello from code!") }
